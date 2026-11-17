@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+/* ---------- Dark mode overrides for the original color names ---------- */
+.dark .bg-paper { background-color: #1B2632; }
+.dark .bg-paper\/70 { background-color: rgb(27 38 50 / 0.7); }
+.dark .bg-white { background-color: #2C3B4D; }
+.dark .bg-pine { background-color: #2C3B4D; }
+
+.dark .text-ink { color: #EEE9DF; }
+.dark .text-ink\/50 { color: rgb(238 233 223 / 0.5); }
+.dark .text-ink\/60 { color: rgb(238 233 223 / 0.6); }
+.dark .text-ink\/70 { color: rgb(238 233 223 / 0.7); }
+.dark .text-ink\/80 { color: rgb(238 233 223 / 0.8); }
+
+.dark .text-paper { color: #EEE9DF; }
+.dark .text-pine { color: #FFB162; }
+.dark .text-rust { color: #FFB162; }
+
+.dark .border-sand,
+.dark .border-sand\/80 { border-color: #2C3B4D; }
+.dark .border-rust { border-color: #FFB162; }
+.dark .border-pine { border-color: #FFB162; }
+.dark .border-ink { border-color: #EEE9DF; }
+
+.dark .hover\:text-ink:hover { color: #EEE9DF; }
+.dark .hover\:border-pine:hover { border-color: #FFB162; }
+
+/* ---------- Animated gradient background ---------- */
+.bg-gradient-page {
+  background: linear-gradient(120deg, #EEE9DF 0%, #F7E6CE 35%, #EBD2BC 65%, #EEE9DF 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 18s ease infinite;
+}
+.dark .bg-gradient-page {
+  background: linear-gradient(120deg, #1B2632 0%, #2C3B4D 35%, #3B2F38 65%, #1B2632 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 18s ease infinite;
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+.btn:hover  { transform: translateY(-3px); box-shadow: 0 10px 24px -8px rgb(0 0 0 / 0.35); }
+.btn:active { transform: translateY(0) scale(0.97); box-shadow: none; }
+
+.btn-primary { background-color: #2C3B4D; color: #EEE9DF; }
+.btn-primary:hover { background-color: #A35139; }
+.dark .btn-primary { background-color: #FFB162; color: #1B2632; }
+.dark .btn-primary:hover { background-color: #EEE9DF; }
+
+.btn-outline { border: 1px solid #2C3B4D; color: #2C3B4D; }
+.btn-outline:hover { background-color: #2C3B4D; color: #EEE9DF; }
+.dark .btn-outline { border-color: #FFB162; color: #FFB162; }
+.dark .btn-outline:hover { background-color: #FFB162; color: #1B2632; }
+
+/* ---------- Hover helpers for cards, tags, photo ---------- */
+.hover-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 28px -10px rgb(0 0 0 / 0.3); }
+
+.photo-hover { transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.photo-hover:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 0 0 6px rgb(255 177 98 / 0.4), 0 16px 36px -10px rgb(0 0 0 / 0.4);
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Cursor glow ---------- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(circle, rgb(255 177 98 / 0.28), transparent 65%);
+}
+.cursor-glow.is-on { opacity: 1; }
+.dark .cursor-glow { background: radial-gradient(circle, rgb(255 177 98 / 0.16), transparent 65%); }
+@media (hover: none) { .cursor-glow { display: none; } }
+
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  z-index: 60;
+  background: linear-gradient(90deg, #A35139, #FFB162);
+  transition: width 0.1s linear;
+}
+
+/* ---------- Respect "reduce motion" settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient-page, .dark .bg-gradient-page { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .hover-lift, .photo-hover { transition: none; }
+}
+
+
+
+:root {
+  --hover-color: #c2410c; /* light mode: deep orange */
+}
+
+.dark {
+  --hover-color: #fdba74; /* dark mode: soft orange */
+}
+
+.hover-char {
+  transition: color 0.15s ease;
+  cursor: default;
+}
+
+.hover-char:hover {
+  color: var(--hover-color);
+}
+
+
+/* ---------- Page transitions ---------- */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}
