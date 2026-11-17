@@ -46,7 +46,6 @@
   transition: background-color 0.6s ease, opacity 0.6s ease;
 }
 
-/* Speed: lower seconds = faster. Change ease-in-out to linear for a ricochet feel. */
 .bgfx-blob-1 {
   width: 55vmax;
   height: 55vmax;
@@ -79,7 +78,7 @@
   animation: bgfx-move-4 28s ease-in-out infinite;
 }
 
-/* Each blob bounces between different corners of the screen */
+
 @keyframes bgfx-move-1 {
   0%   { transform: translate(-10vw, -10vh) scale(1); }
   25%  { transform: translate(55vw, 10vh) scale(1.2); }

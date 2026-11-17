@@ -4,14 +4,14 @@ useSeoMeta({
   description: 'Personal information, education, skills and hobbies.'
 })
 
-// NOTE: EDIT the values below — each one shows up directly on the page.
+
 const personalInfo = [
   { label: 'Location', value: 'San Francisco, Agusan del Sur' },
   { label: 'Email', value: 'xhianlee.ashville13@gmail.com' },
   { label: 'Languages', value: 'English, Filipino' }
 ]
 
-// NOTE: Add or remove entries as needed — each one is a row on the timeline.
+
 const education = [
   {
     period: '2012 — 2018',
@@ -30,15 +30,15 @@ const education = [
   },
 ]
 
-// NOTE: Replace each entry with one of your own skills.
+
 const skills = [
   'Video Editing', 'Photography', 'Frontend Development',
   'Backend Development',]
 
-// NOTE: Replace each entry with something you're genuinely interested in.
+
 const interests = ['Travelling', 'Learning New Skills', 'Gaming',]
 
-// NOTE: Add a short line for each hobby. Add/remove entries freely.
+
 const hobbies = [
   { title: 'Video & Photo Editing', note: 'Creating compelling visual content for various platforms.' },
   { title: 'Coding & Exploring Technology', note: 'Building small projects and exploring new technologies to improve my programming skills.' },

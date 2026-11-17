@@ -20,7 +20,7 @@ let lastY = -999
 const particles: Particle[] = []
 const ripples: Ripple[] = []
 
-// Reads the theme color from CSS so it switches with light/dark mode
+
 const getColor = () =>
   getComputedStyle(document.documentElement).getPropertyValue('--fx-color').trim() || '#c2410c'
 
@@ -45,7 +45,7 @@ const tick = () => {
   ctx.fillStyle = color
   ctx.strokeStyle = color
 
-  // Trail dots and click sparks
+ 
   for (let i = particles.length - 1; i >= 0; i--) {
     const p = particles[i]
     p.life -= p.decay
@@ -61,7 +61,7 @@ const tick = () => {
     ctx.fill()
   }
 
-  // Click rings
+ 
   for (let i = ripples.length - 1; i >= 0; i--) {
     const r = ripples[i]
     r.life -= 0.025
@@ -96,7 +96,7 @@ const onMove = (e: PointerEvent) => {
   if (e.pointerType !== 'mouse') return
   const dx = e.clientX - lastX
   const dy = e.clientY - lastY
-  if (dx * dx + dy * dy < 100) return // spawn a dot every ~10px of movement
+  if (dx * dx + dy * dy < 100) return 
   lastX = e.clientX
   lastY = e.clientY
 
@@ -151,7 +151,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-/* Effect color: deep orange in light mode, soft orange in dark mode */
+
 :root {
   --fx-color: #c2410c;
 }
