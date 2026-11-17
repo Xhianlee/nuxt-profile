@@ -21,7 +21,7 @@ const photo = '/grad.jpg'
 
         
       <p class="mt-5 max-w-xl font-body text-base leading-relaxed text-ink/80">
-  <HoverText text="I'm a software engineer with a passion for building web applications and exploring new technologies. I enjoy creating user-friendly interfaces and writing clean, efficient code. In my free time, I love to contribute to open-source projects and stay updated with the latest trends in the tech industry." />
+  <HoverText text="I'm an Information Technology student with a passion for building web applications and exploring new technologies. I enjoy creating user-friendly interfaces and writing clean, efficient code. In my free time, I love to contribute to open-source projects and stay updated with the latest trends in the tech industry." />
 </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <NuxtLink
